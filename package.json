@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "tailwind": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "test": "vitest"
@@ -22,11 +22,13 @@
     "react-router-dom": "^6.7.0"
   },
   "devDependencies": {
+    "@types/node": "^18.16.3",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "jsdom": "^21.1.0",
     "tailwindcss": "^3.2.4",
+    "typescript": "^5.0.4",
     "vite": "^4.0.0",
     "vitest": "^0.28.3"
   }

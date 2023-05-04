@@ -1,7 +1,6 @@
 import React from "react";
-import Navbar from "../../src/components/Navbar/Navbar";
-import UserCard from "../../src/components/UserCard/UserCard";
-import { UserAuth } from "../../context/AuthContext";
+import Navbar from "../../components/Navbar/Navbar";
+import { UserAuth } from "../../../context/AuthContext";
 
 const Home = () => {
   const { user } = UserAuth();
@@ -13,9 +12,8 @@ const Home = () => {
         Welcome back, {user ? user.email : null}!
       </h4>
       <p className="text-4xl mt-4 py-4 text-darkGrayishBlue">
-        SIL Assessment Users
+        Books Currently Available{" "}
       </p>
-      <UserCard />
     </>
   );
 };
