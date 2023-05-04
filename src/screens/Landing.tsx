@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserAuth } from "../context/AuthContext";
+import { UserAuth } from "../../context/AuthContext";
 
 const Landing = () => {
   const [email, setEmail] = useState("");
@@ -45,11 +45,10 @@ const Landing = () => {
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-6xl p-5 items-center">
           <div className="md:w-1/2 px-16">
             <h2 className="font-bold text-4xl text-brightRed">
-              SIL Assessment Center
+              Book<em className="text-darkGrayishBlue">us</em>
             </h2>
             <p className="text-lg mt-4 py-4 text-darkGrayishBlue">
-              Welcome to this web application platform that allows you to test
-              out your Software Development ninja moves
+              Explore and discover amazing books in your community
             </p>
             {error && (
               <p className="text-brightRed bg-brightRedSupLight rounded-md p-1">

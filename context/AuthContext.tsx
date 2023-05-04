@@ -31,7 +31,7 @@ export const AuthContextProvider = ({ children }) => {
   const forgotPassword = (email) => {
     return sendPasswordResetEmail(auth, email, {
       // url: "http://localhost:5173", //redirect URL upon reset
-      url: "https://assessment-citixenken.vercel.app/",
+      url: "https://bookus.vercel.app/",
     });
   };
 
