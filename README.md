@@ -1,8 +1,8 @@
 <p align="center"><img src="https://cdn-icons-png.flaticon.com/512/3214/3214721.png" /></p>
 
-<h1 align="center">SIL Assessment</h1>
+<h1 align="center">Bookus</h1>
 
-<p align="center"> Testing Frontend Web Dev skills </p>
+<p align="center"> React Web App that allows user to find, get, and share books with fellow bibliophiles </p>
 
 [![GitHub Super-Linter](https://github.com/citixenken/Assessment/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
@@ -10,7 +10,6 @@
 
 ## API Usage and Endpoint
 
-The application consumes data from [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
 
 ## Set up locally
 The project was set up using [Vite](https://vitejs.dev/) - A blazingly fast Frontend build tool 
@@ -23,7 +22,7 @@ The project was set up using [Vite](https://vitejs.dev/) - A blazingly fast Fron
  
 ## Deployment - via Vercel
 
-[Vercel live-link](https://assessment-citixenken.vercel.app/)
+[Vercel live-link](https://bookus.vercel.app/)
 
 ## Contributing
 
@@ -35,7 +34,7 @@ Pull requests(PRs) are welcome. For major changes, please open an issue first to
 2. Frontend tooling, see [Vite](https://vitejs.dev/)
 3. UI library, check out [TailwindCSS](https://tailwindcss.com/) 
 4. User Authentication and Authorization, check out [Firebase](https://firebase.google.com/)
-5. For Backend service, see [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
+5. For Backend service, see [NodeJS](https://nodejs.dev/en/) and [MongoDB](https://www.mongodb.com/)
 6. Deployment service was handled by [Vercel](https://vercel.com/dashboard)
 
 ## Acknowledgement
