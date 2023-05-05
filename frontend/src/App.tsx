@@ -8,6 +8,7 @@ import Home from "./screens/loggedIn/Home";
 import { AuthContextProvider } from "../context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ForgotPassword from "./screens/ForgotPassword";
+import NewBookForm from "./screens/NewBookForm";
 
 function App() {
   return (
@@ -25,6 +26,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/add"
+            element={
+              <ProtectedRoute>
+                <NewBookForm />
+              </ProtectedRoute>
+            }
+          ></Route>
         </Routes>
       </AuthContextProvider>
     </div>

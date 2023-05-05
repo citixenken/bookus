@@ -9,6 +9,10 @@ function Navbar() {
 
   const { logout } = UserAuth();
 
+  const handleAddBook = () => {
+    navigate("/add");
+  };
+
   const handleLogout = async () => {
     try {
       await logout();
@@ -36,7 +40,15 @@ function Navbar() {
               </div>
             </a>
           </div>
-          {/* take a tour button */}
+          {/* add new book  */}
+          <button
+            href="/add"
+            className="sm:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight"
+            onClick={handleAddBook}
+          >
+            Add New Book
+          </button>
+          {/* logout button */}
           <button
             href="/"
             className="sm:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight"

@@ -41,8 +41,8 @@ exports.book_create = async (req, res) => {
       publishedDate,
     });
     res.status(200).json(book);
-  } catch (err) {
-    res.status(400).json({ msg: err.message });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
   //   res.json({ msg: "Post a new book" });
 };

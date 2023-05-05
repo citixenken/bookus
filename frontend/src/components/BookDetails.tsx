@@ -1,6 +1,7 @@
 import React from "react";
 
 const BookDetails = ({ book }) => {
+  const dateBookPublished = new Date(book.publishedDate).toDateString();
   const dateBookAdded = new Date(book.createdAt).toDateString();
 
   return (
@@ -10,7 +11,7 @@ const BookDetails = ({ book }) => {
       <p className="text-base font-light mb-2">Genre: {book.genre}</p>
       <p className="text-base font-light mb-2">ISBN: {book.isbn}</p>
       <p className="text-base font-light mb-2">
-        Date Published: {book.publishedDate}
+        Date Published: {dateBookPublished}
       </p>
       <p className="text-base font-light">Date Book Added: {dateBookAdded}</p>
     </div>
