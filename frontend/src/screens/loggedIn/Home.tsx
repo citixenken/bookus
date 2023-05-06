@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import BookDetails from "../../components/BookDetails";
 import { UserAuth } from "../../../context/AuthContext";
+import { useBookContext } from "../../../hooks/useBookContext";
 
 const Home = () => {
   const { user } = UserAuth();
 
-  const [books, setBooks] = useState(null);
+  // using useBookContext hook to consume books context
+  // const [books, setBooks] = useState(null);
+  const { books, dispatch } = useBookContext();
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -14,7 +17,8 @@ const Home = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setBooks(data);
+        // setBooks(data);
+        dispatch({ type: "SET_BOOKS", payload: data });
       }
     };
     fetchBooks();

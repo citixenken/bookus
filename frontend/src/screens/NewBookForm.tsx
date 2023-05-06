@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
+import { useBookContext } from "../../hooks/useBookContext";
 
 const NewBookForm = () => {
+  // for keeping UI in sync with DB
+  const { dispatch } = useBookContext();
+
   const [avatar, setAvatar] = useState("");
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -43,6 +47,9 @@ const NewBookForm = () => {
       setIsbn("");
       setGenre("");
       setPublishedDate("");
+
+      // for keeping UI in sync with DB /update on success
+      dispatch({ type: "CREATE_BOOK", payload: data });
     }
   };
 
