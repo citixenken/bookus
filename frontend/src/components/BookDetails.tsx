@@ -1,10 +1,16 @@
 import React from "react";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { useBookContext } from "../../hooks/useBookContext";
 
 const BookDetails = ({ book }) => {
   const dateBookPublished = new Date(book.publishedDate).toDateString();
-  const dateBookAdded = new Date(book.createdAt).toDateString();
+  // const dateBookAdded = new Date(book.createdAt).toDateString();
+
+  // with date-fns
+  const dateBookAdded = formatDistanceToNow(new Date(book.createdAt), {
+    addSuffix: true,
+  });
 
   const { dispatch } = useBookContext();
 
@@ -30,14 +36,12 @@ const BookDetails = ({ book }) => {
       <p className="text-base font-light mb-2">
         Date Published: {dateBookPublished}
       </p>
-      <p className="text-base font-light mb-4">
-        Date Book Added: {dateBookAdded}
-      </p>
-      <button
-        className="inline-block px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-500Light"
-        onClick={handleBookDelete}
-      >
-        <RiDeleteBin5Fill className="text-2xl" />
+      <p className="text-base font-light mb-4">Book Added: {dateBookAdded}</p>
+      <button>
+        <RiDeleteBin5Fill
+          className="text-2xl text-red-500"
+          onClick={handleBookDelete}
+        />
       </button>
     </div>
   );
