@@ -13,6 +13,7 @@ const NewBookForm = () => {
   const [genre, setGenre] = useState("");
   const [publishedDate, setPublishedDate] = useState("");
   const [error, setError] = useState(null);
+  const [emptyFields, setEmptyFields] = useState([]);
 
   const handleAddNewBook = async (e) => {
     e.preventDefault();
@@ -35,9 +36,11 @@ const NewBookForm = () => {
 
     if (!response.ok) {
       setError(data.error); // data.error in bookController!
+      setEmptyFields(data.emptyFields);
     }
     if (response.ok) {
       setError(null);
+      setEmptyFields([]);
       console.log("New book added successfully", data);
 
       //   reset form fields
@@ -71,12 +74,15 @@ const NewBookForm = () => {
               name="title"
               type="text"
               placeholder="Add Book Title"
-              className="border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
+              className={
+                emptyFields.includes("title")
+                  ? "border-2 border-red-500 p-2 rounded-md w-full focus:border-red-500 focus:outline-none"
+                  : "border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
+              }
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
           </div>
-
           <div className="mb-4">
             <label htmlFor="author" className="block font-medium mb-1">
               Book Author:
@@ -86,12 +92,15 @@ const NewBookForm = () => {
               name="author"
               type="text"
               placeholder="Add Book Author"
-              className="border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
+              className={
+                emptyFields.includes("author")
+                  ? "border-2 border-red-500 p-2 rounded-md w-full focus:border-red-500 focus:outline-none"
+                  : "border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
+              }
               onChange={(e) => setAuthor(e.target.value)}
               value={author}
             />
           </div>
-
           <div className="mb-4">
             <label htmlFor="isbn" className="block font-medium mb-1">
               Book ISBN:
@@ -101,12 +110,15 @@ const NewBookForm = () => {
               name="isbn"
               type="text"
               placeholder="Add Book ISBN"
-              className="border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
+              className={
+                emptyFields.includes("isbn")
+                  ? "border-2 border-red-500 p-2 rounded-md w-full focus:border-red-500 focus:outline-none"
+                  : "border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
+              }
               onChange={(e) => setIsbn(e.target.value)}
               value={isbn}
             />
           </div>
-
           <div className="mb-4">
             <label htmlFor="genre" className="block font-medium mb-1">
               Book Genre:
@@ -116,12 +128,15 @@ const NewBookForm = () => {
               name="genre"
               type="text"
               placeholder="Add Book Genre"
-              className="border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
+              className={
+                emptyFields.includes("genre")
+                  ? "border-2 border-red-500 p-2 rounded-md w-full focus:border-red-500 focus:outline-none"
+                  : "border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
+              }
               onChange={(e) => setGenre(e.target.value)}
               value={genre}
             />
           </div>
-
           <div className="mb-4">
             <label htmlFor="publishedDate" className="block font-medium mb-1">
               Book Published Date:
@@ -135,7 +150,6 @@ const NewBookForm = () => {
               value={publishedDate}
             />
           </div>
-
           <div className="mb-4">
             <label htmlFor="avatar" className="block font-medium mb-1">
               Book Avatar:
@@ -152,7 +166,11 @@ const NewBookForm = () => {
           <button className="sm:block p-3 px-6 pt-2 text-white bg-emerald-500 rounded-full baseline hover:bg-red-500Light">
             Add Book
           </button>
-          {error && <div className="mb-4 text-red-500">{error}</div>}
+          {error && (
+            <div className="my-4 text-red-600 border border-red-600 bg-red-100 p-2 rounded-md">
+              {error}
+            </div>
+          )}
         </form>
       </div>
     </>

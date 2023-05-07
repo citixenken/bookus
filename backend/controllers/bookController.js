@@ -31,6 +31,29 @@ exports.book_detail = async (req, res) => {
 // Add (POST) a new book
 exports.book_create = async (req, res) => {
   const { avatar, title, author, isbn, genre, publishedDate } = req.body;
+
+  let emptyFields = [];
+
+  if (!title) {
+    emptyFields.push("title");
+  }
+  if (!author) {
+    emptyFields.push("author");
+  }
+  if (!isbn) {
+    emptyFields.push("isbn");
+  }
+  if (!genre) {
+    emptyFields.push("genre");
+  }
+
+  // if missing field, exit here
+  if (emptyFields.length > 0) {
+    return res.status(404).json({
+      error: "Please fill required data for missing field(s)",
+      emptyFields,
+    });
+  }
   try {
     const book = await Book.create({
       avatar,
