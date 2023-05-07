@@ -22,7 +22,7 @@ const Home = () => {
       }
     };
     fetchBooks();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="container mx-auto mt-10">

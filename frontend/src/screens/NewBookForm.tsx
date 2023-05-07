@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { useBookContext } from "../../hooks/useBookContext";
+import { useNavigate } from "react-router-dom";
 
 const NewBookForm = () => {
+  const navigate = useNavigate();
+
   // for keeping UI in sync with DB
   const { dispatch } = useBookContext();
 
@@ -13,6 +16,7 @@ const NewBookForm = () => {
   const [genre, setGenre] = useState("");
   const [publishedDate, setPublishedDate] = useState("");
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState("");
   const [emptyFields, setEmptyFields] = useState([]);
 
   const handleAddNewBook = async (e) => {
@@ -37,10 +41,14 @@ const NewBookForm = () => {
     if (!response.ok) {
       setError(data.error); // data.error in bookController!
       setEmptyFields(data.emptyFields);
+
+      setSuccess(null);
     }
     if (response.ok) {
       setError(null);
       setEmptyFields([]);
+
+      setSuccess("Book added successfully");
       console.log("New book added successfully", data);
 
       //   reset form fields
@@ -53,6 +61,11 @@ const NewBookForm = () => {
 
       // for keeping UI in sync with DB /update on success
       dispatch({ type: "CREATE_BOOK", payload: data });
+
+      // wait for 1.5 seconds after success then redirect to book list
+      setTimeout(() => {
+        navigate("/home");
+      }, 1500);
     }
   };
 
@@ -169,6 +182,11 @@ const NewBookForm = () => {
           {error && (
             <div className="my-4 text-red-600 border border-red-600 bg-red-100 p-2 rounded-md">
               {error}
+            </div>
+          )}
+          {success && (
+            <div className="my-4 text-emerald-600 border border-emerald-600 bg-emerald-100 p-2 rounded-md">
+              {success}
             </div>
           )}
         </form>
