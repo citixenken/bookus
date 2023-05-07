@@ -25,7 +25,7 @@ function Navbar() {
   return (
     <div>
       {/* navbar */}
-      <nav className="relative container mx-auto p-6 mb-6 bg-brightRedSupLight rounded-xl">
+      <nav className="relative container mx-auto p-6 mb-6 bg-gray-200 rounded-xl">
         {/* flex container */}
         <div className="flex items-center justify-around">
           {/* navbar items */}
@@ -43,7 +43,7 @@ function Navbar() {
           {/* add new book  */}
           <button
             href="/add"
-            className="sm:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight"
+            className="sm:block p-3 px-6 pt-2 text-black bg-emerald-500 rounded-full baseline hover:bg-red-500Light"
             onClick={handleAddBook}
           >
             Add New Book
@@ -51,7 +51,7 @@ function Navbar() {
           {/* logout button */}
           <button
             href="/"
-            className="sm:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight"
+            className="sm:block p-3 px-6 pt-2 text-black bg-red-500 rounded-full baseline hover:bg-red-500Light"
             onClick={handleLogout}
           >
             Logout

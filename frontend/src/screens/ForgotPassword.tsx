@@ -25,9 +25,9 @@ const ForgotPassword = () => {
   };
   return (
     <div className="max-w-[700px] mx-auto my-16 p-4">
-      <h1 className="font-bold text-4xl text-brightRed">Forgot Password?</h1>
+      <h1 className="font-bold text-4xl text-red-500">Forgot Password?</h1>
       {error && (
-        <p className="text-brightRed bg-brightRedSupLight rounded-md p-1">
+        <p className="text-red-500 bg-red-500SupLight rounded-md p-1">
           {error}
         </p>
       )}
@@ -50,13 +50,13 @@ const ForgotPassword = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button className="bg-brightRed rounded-md text-white py-2 hover:scale-105 duration-300">
+        <button className="bg-red-500 rounded-md text-white py-2 hover:scale-105 duration-300">
           Send reset link
         </button>
       </form>
       <div className="text-md flex justify-around items-center py-4">
         <p>Already have an account?</p>
-        <Link to="/" className="text-brightRed">
+        <Link to="/" className="text-red-500">
           Sign In
         </Link>
       </div>

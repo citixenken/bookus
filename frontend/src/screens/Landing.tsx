@@ -44,14 +44,14 @@ const Landing = () => {
       <section className=" min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-6xl p-5 items-center">
           <div className="md:w-1/2 px-16">
-            <h2 className="font-bold text-4xl text-brightRed">
+            <h2 className="font-bold text-4xl text-red-500">
               Book<em className="text-darkGrayishBlue">us</em>
             </h2>
             <p className="text-lg mt-4 py-4 text-darkGrayishBlue">
               Explore and discover amazing books in your community
             </p>
             {error && (
-              <p className="text-brightRed bg-brightRedSupLight rounded-md p-1">
+              <p className="text-red-500 bg-red-500SupLight rounded-md p-1">
                 {error}
               </p>
             )}
@@ -87,7 +87,7 @@ const Landing = () => {
                   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                 </svg>
               </div>
-              <button className="bg-brightRed rounded-md text-white py-2 hover:scale-105 duration-300">
+              <button className="bg-red-500 rounded-md text-white py-2 hover:scale-105 duration-300">
                 Login
               </button>
             </form>
@@ -115,14 +115,14 @@ const Landing = () => {
               Continue with Google
             </button>
 
-            <div className="mt-5 text-sm text-brightRed border-b border-darkGrayishBlue py-4 hover:scale-105 duration-300">
+            <div className="mt-5 text-sm text-red-500 border-b border-darkGrayishBlue py-4 hover:scale-105 duration-300">
               <a href="/forgotpassword">Forgot Password?</a>
             </div>
             <div className="text-md flex justify-around items-center py-4">
               <p>Don't have an account?</p>
               <Link
                 to="/register"
-                className="text-brightRed hover:scale-105 duration-300"
+                className="text-red-500 hover:scale-105 duration-300"
               >
                 Register
               </Link>

@@ -61,9 +61,9 @@ const NewBookForm = () => {
           className="max-w-md mx-auto p-4 rounded-md shadow-md bg-veryLightGray"
           onSubmit={handleAddNewBook}
         >
-          <h2 className="text-xl font-bold mb-4">Add Book</h2>
+          <h2 className="text-xl text-emerald-500 font-bold mb-4">Add Book</h2>
           <div className="mb-4">
-            <label htmlFor="title" className="block font-medium mb-1">
+            <label htmlFor="title" className=" block font-medium mb-1">
               Book Title:
             </label>
             <input
@@ -71,7 +71,7 @@ const NewBookForm = () => {
               name="title"
               type="text"
               placeholder="Add Book Title"
-              className="w-full border-gray-300 rounded-md shadow-sm px-3 py-2 "
+              className="border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
@@ -86,7 +86,7 @@ const NewBookForm = () => {
               name="author"
               type="text"
               placeholder="Add Book Author"
-              className="w-full border-gray-300 rounded-md shadow-sm px-3 py-2 "
+              className="border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
               onChange={(e) => setAuthor(e.target.value)}
               value={author}
             />
@@ -101,7 +101,7 @@ const NewBookForm = () => {
               name="isbn"
               type="text"
               placeholder="Add Book ISBN"
-              className="w-full border-gray-300 rounded-md shadow-sm px-3 py-2 "
+              className="border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
               onChange={(e) => setIsbn(e.target.value)}
               value={isbn}
             />
@@ -116,7 +116,7 @@ const NewBookForm = () => {
               name="genre"
               type="text"
               placeholder="Add Book Genre"
-              className="w-full border-gray-300 rounded-md shadow-sm px-3 py-2 "
+              className="border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
               onChange={(e) => setGenre(e.target.value)}
               value={genre}
             />
@@ -130,7 +130,7 @@ const NewBookForm = () => {
               id="publishedDate"
               name="publishedDate"
               type="date"
-              className="w-full border-gray-300 rounded-md shadow-sm px-3 py-2 "
+              className="border border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
               onChange={(e) => setPublishedDate(e.target.value)}
               value={publishedDate}
             />
@@ -144,15 +144,15 @@ const NewBookForm = () => {
               id="avatar"
               name="avatar"
               type="file"
-              className="w-full border-gray-300 rounded-md shadow-sm px-3 py-2 "
+              className="border:outline-none border-gray-500 p-2 rounded-md w-full focus:border-teal-500 focus:outline-none"
               onChange={(e) => setAvatar(e.target.value)}
               value={avatar}
             />
           </div>
-          <button className="sm:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight">
+          <button className="sm:block p-3 px-6 pt-2 text-white bg-emerald-500 rounded-full baseline hover:bg-red-500Light">
             Add Book
           </button>
-          {error && <div className="mb-4 text-brightRed">{error}</div>}
+          {error && <div className="mb-4 text-red-500">{error}</div>}
         </form>
       </div>
     </>

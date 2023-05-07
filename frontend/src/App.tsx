@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as Sentry from "@sentry/react";
 import Landing from "./screens/Landing";
-import "./App.css";
+import "./input.css";
 import { Routes, Route } from "react-router-dom";
 import Register from "./components/Register/Register";
 import Home from "./screens/loggedIn/Home";

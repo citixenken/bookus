@@ -25,7 +25,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <div className="container mx-auto mt-10">
       <Navbar />
       <h4 className="text-2xl text-darkBlue font-normal">
         Welcome back, {user ? user.email : null}!
@@ -36,7 +36,7 @@ const Home = () => {
           ? books.map((book) => <BookDetails key={book._id} book={book} />)
           : null}
       </div>
-    </>
+    </div>
   );
 };
 

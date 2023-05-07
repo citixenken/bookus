@@ -22,7 +22,7 @@ const BookDetails = ({ book }) => {
   };
 
   return (
-    <div className="bg-veryLightGray rounded-lg shadow-md py-4 my-4">
+    <div className="bg-gray-200 rounded-lg shadow-md p-4 my-4">
       <h1 className="text-2xl font-bold mb-2">Title: {book.title}</h1>
       <p className="text-base font-light mb-2">Author: {book.author}</p>
       <p className="text-base font-light mb-2">Genre: {book.genre}</p>
@@ -34,7 +34,7 @@ const BookDetails = ({ book }) => {
         Date Book Added: {dateBookAdded}
       </p>
       <button
-        className="inline-block px-4 py-2 text-white bg-brightRed rounded-lg hover:bg-brightRedLight"
+        className="inline-block px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-500Light"
         onClick={handleBookDelete}
       >
         <RiDeleteBin5Fill className="text-2xl" />

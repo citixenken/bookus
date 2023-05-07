@@ -25,7 +25,7 @@ const Register = () => {
 
   return (
     <div className="max-w-[700px] mx-auto my-16 p-4">
-      <h1 className="font-bold text-4xl text-brightRed">Register</h1>
+      <h1 className="font-bold text-4xl text-red-500">Register</h1>
       <form
         action=""
         className="flex flex-col px-8 gap-4"
@@ -58,17 +58,17 @@ const Register = () => {
             <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
           </svg>
         </div>
-        <button className="bg-brightRed rounded-md text-white py-2 hover:scale-105 duration-300">
+        <button className="bg-red-500 rounded-md text-white py-2 hover:scale-105 duration-300">
           Register
         </button>
       </form>
 
       <div className="text-md flex justify-around items-center py-4">
         <p>Already have an account?</p>
-        {/* <button className="py-2 px-4 bg-brightRed rounded-md text-white hover:scale-105 duration-300">
+        {/* <button className="py-2 px-4 bg-red-500 rounded-md text-white hover:scale-105 duration-300">
           Sign In
         </button> */}
-        <Link to="/" className="text-brightRed">
+        <Link to="/" className="text-red-500">
           Sign In
         </Link>
       </div>
