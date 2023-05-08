@@ -4,7 +4,8 @@ const mongoose = require("mongoose"); // ODM library
 const logger = require("morgan");
 const cors = require("cors");
 
-const booksRouter = require("./routes/books");
+const userRoutes = require("./routes/user");
+const booksRoutes = require("./routes/books");
 
 const app = express();
 
@@ -14,7 +15,8 @@ app.use(express.json());
 app.use(cors());
 
 // routes
-app.use("/books", booksRouter);
+app.use("/user", userRoutes);
+app.use("/books", booksRoutes);
 
 // set up mongo db connection
 const mongoDB = process.env.MONGODB_URI;
