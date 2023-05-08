@@ -1,7 +1,7 @@
 import React from "react";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import { useBookContext } from "../../hooks/useBookContext";
+import { useBookContext } from "../hooks/useBookContext";
 
 const BookDetails = ({ book }) => {
   const dateBookPublished = new Date(book.publishedDate).toDateString();

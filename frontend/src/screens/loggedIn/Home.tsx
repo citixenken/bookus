@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import BookDetails from "../../components/BookDetails";
-import { UserAuth } from "../../../context/AuthContext";
-import { useBookContext } from "../../../hooks/useBookContext";
+import { UserAuth } from "../../context/AuthContext";
+import { useBookContext } from "../../hooks/useBookContext";
 
 const Home = () => {
   const { user } = UserAuth();
