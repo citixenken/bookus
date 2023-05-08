@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
+/********* USING GOOGLE AUTH ***********
+ import { createContext, useContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -60,4 +61,33 @@ export const AuthContextProvider = ({ children }) => {
 
 export const UserAuth = () => {
   return useContext(UserContext);
+};
+
+ ********* USING GOOGLE AUTH ***********/
+
+import React, { createContext, useReducer } from "react";
+
+export const AuthContext = createContext();
+
+export const authReducer = (state, action) => {
+  switch (action.type) {
+    case "LOGIN_USER":
+      return { user: action.payload };
+    case "LOGOUT_USER":
+      return { user: null };
+    default:
+      return state;
+  }
+};
+
+export const AuthContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(authReducer, { user: null });
+
+  console.log("AuthContext state: ", state);
+
+  return (
+    <AuthContext.Provider value={{ ...state, dispatch }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

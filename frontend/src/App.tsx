@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import * as Sentry from "@sentry/react";
+import { AuthContextProvider } from "./context/AuthContext";
+import { BookContextProvider } from "./context/BookContext";
 import Landing from "./screens/Landing";
 import "./input.css";
 import { Routes, Route } from "react-router-dom";
 import Register from "./components/Register/Register";
 import Home from "./screens/loggedIn/Home";
-import { AuthContextProvider } from "./context/AuthContext";
-import { BookContextProvider } from "./context/BookContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ForgotPassword from "./screens/ForgotPassword";
 import NewBookForm from "./screens/NewBookForm";
