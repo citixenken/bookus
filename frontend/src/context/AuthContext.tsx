@@ -65,7 +65,7 @@ export const UserAuth = () => {
 
  ********* USING GOOGLE AUTH ***********/
 
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
 
 export const AuthContext = createContext();
 
@@ -84,6 +84,16 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { user: null });
 
   console.log("AuthContext state: ", state);
+
+  // check if user token exists in local storage. auto-login
+  useEffect(() => {
+    // parse converts a JSON string into an object
+    const user = JSON.parse(localStorage.getItem("user_data"));
+
+    if (user) {
+      dispatch({ type: "LOGIN_USER", payload: user });
+    }
+  }, []);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>

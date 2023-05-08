@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GiBookshelf } from "react-icons/gi";
 import useLogout from "../../hooks/useLogout";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 function Navbar() {
   const navigate = useNavigate();
+  const { user } = useAuthContext();
 
   const { logout } = useLogout();
 
@@ -47,6 +49,14 @@ function Navbar() {
           >
             Add New Book
           </button>
+
+          {/* logged in user email */}
+          {user && (
+            <div>
+              <span>{user.email}</span>
+            </div>
+          )}
+
           {/* logout button */}
           <button
             href="/"
