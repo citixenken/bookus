@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
-const useRegister = () => {
+export const useRegister = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,4 +40,4 @@ const useRegister = () => {
   return { register, isLoading, success, error };
 };
 
-export default useRegister;
+// export default useRegister;
