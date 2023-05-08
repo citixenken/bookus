@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { UserAuth } from "../context/AuthContext";
+// import { UserAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
 const ForgotPassword = () => {
-  const { forgotPassword } = UserAuth();
+  // const { forgotPassword } = UserAuth();
 
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -16,7 +16,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       setSuccess("A password reset link has been sent to your email");
-      await forgotPassword(email);
+      // await forgotPassword(email);
       navigate("/");
     } catch (err) {
       setError(err.message);

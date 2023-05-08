@@ -13,33 +13,31 @@ import NewBookForm from "./screens/NewBookForm";
 
 function App() {
   return (
-    <div className="App">
-      <AuthContextProvider>
-        <BookContextProvider>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/forgotpassword" element={<ForgotPassword />} />
-            <Route
-              path="/home"
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/add"
-              element={
-                <ProtectedRoute>
-                  <NewBookForm />
-                </ProtectedRoute>
-              }
-            ></Route>
-          </Routes>
-        </BookContextProvider>
-      </AuthContextProvider>
-    </div>
+    <AuthContextProvider>
+      <BookContextProvider>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/add"
+            element={
+              <ProtectedRoute>
+                <NewBookForm />
+              </ProtectedRoute>
+            }
+          ></Route>
+        </Routes>
+      </BookContextProvider>
+    </AuthContextProvider>
   );
 }
 

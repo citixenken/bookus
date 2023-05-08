@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GiBookshelf } from "react-icons/gi";
 
-import { UserAuth } from "../../context/AuthContext";
+// import { UserAuth } from "../../context/AuthContext";
 
 function Navbar() {
   const navigate = useNavigate();
 
-  const { logout } = UserAuth();
+  // const { logout } = UserAuth();
 
   const handleAddBook = () => {
     navigate("/add");
@@ -15,7 +15,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      await logout();
+      // await logout();
       navigate("/");
     } catch (err) {
       console.log(err.message);

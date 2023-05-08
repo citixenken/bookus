@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import BookDetails from "../../components/BookDetails";
-import { UserAuth } from "../../context/AuthContext";
+// import { UserAuth } from "../../context/AuthContext";
 import { useBookContext } from "../../hooks/useBookContext";
 
 const Home = () => {
-  const { user } = UserAuth();
+  // const { user } = UserAuth();
 
   // using useBookContext hook to consume books context
   // const [books, setBooks] = useState(null);
@@ -28,7 +28,7 @@ const Home = () => {
     <div className="container mx-auto mt-10">
       <Navbar />
       <h4 className="text-2xl text-darkBlue font-normal">
-        Welcome back, {user ? user.email : null}!
+        {/* Welcome back, {user ? user.email : null}! */}
       </h4>
       <p className="text-4xl mt-4 py-4 text-darkGrayishBlue">Book List</p>
       <div className="">
