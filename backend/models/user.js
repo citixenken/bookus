@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const validator = require("validator");
 
 const Schema = mongoose.Schema;
 
@@ -15,6 +16,20 @@ const UserSchema = new Schema(
 // NOTE: arrow fns can't handle 'this' binding ... use regular fn
 // UserSchema.statics.register = async (email, password) => {
 UserSchema.statics.register = async function (email, password) {
+  // email and password field data must be present
+  if (!email || !password) {
+    throw Error("All fields must be filled");
+  }
+  //   email and password validation => use 'validator' package
+  if (!validator.isEmail(email)) {
+    throw Error("Email is not valid");
+  }
+  if (!validator.isStrongPassword(password)) {
+    throw Error(
+      "Your password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character."
+    );
+  }
+
   //check if email already registered
   const emailExists = await this.findOne({ email });
   if (emailExists) {
