@@ -27,5 +27,18 @@ exports.user_register = async (req, res) => {
 
 // POST login user
 exports.user_login = async (req, res) => {
-  res.json({ msg: "Login registered user" });
+  //   res.json({ msg: "Login registered user" });
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.login(email, password);
+
+    // create a token
+    const token = createToken(user._id);
+
+    // if successful, return user email and token created in database
+    res.status(200).json({ email, token });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };

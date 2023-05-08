@@ -47,7 +47,29 @@ UserSchema.statics.register = async function (email, password) {
 };
 
 // static login method
-UserSchema.statics.login = async () => {};
+UserSchema.statics.login = async function (email, password) {
+  // email and password field data must be present
+  if (!email || !password) {
+    throw Error("All fields must be filled");
+  }
+
+  //check if user is in database
+  const user = await this.findOne({ email });
+  if (!user) {
+    throw Error(
+      "Cannot find user with these credentials. Create an account to access Bookus"
+    );
+  }
+
+  //   compare passwords (user supplied password vs db password)
+  const password_match = await bcrypt.compare(password, user.password);
+
+  if (!password_match) {
+    throw Error("Incorrect password");
+  }
+
+  return user;
+};
 
 // export model
 module.exports = mongoose.model("User", UserSchema);
