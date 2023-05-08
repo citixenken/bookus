@@ -1,5 +1,11 @@
 const User = require("../models/user");
-const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+
+// create json web token method
+// => token shape=> header.payload.signature
+const createToken = (_id) => {
+  return jwt.sign({ _id }, process.env.SECRET_KEY, { expiresIn: "2d" });
+};
 
 // POST register user
 exports.user_register = async (req, res) => {
@@ -8,8 +14,12 @@ exports.user_register = async (req, res) => {
 
   try {
     const user = await User.register(email, password);
-    // if successful, return user email and user object created in database
-    res.status(200).json({ email, user });
+
+    // create a token
+    const token = createToken(user._id);
+
+    // if successful, return user email and token created in database
+    res.status(200).json({ email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
