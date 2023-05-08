@@ -1,5 +1,4 @@
 const express = require("express");
-const router = express.Router();
 
 // require controller functions
 const {
@@ -9,6 +8,14 @@ const {
   book_delete,
   book_update,
 } = require("../controllers/bookController");
+
+// requireAuth middleware
+const requireAuth = require("../middleware/requireAuth");
+
+const router = express.Router();
+
+// require authorization for all book routes
+router.use(requireAuth);
 
 // GET all books
 router.get("/", book_list);
