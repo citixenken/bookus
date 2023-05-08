@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { UserAuth } from "../context/AuthContext";
+// import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogin } from "../hooks/useLogin";
 
 const Landing = () => {
@@ -8,7 +8,8 @@ const Landing = () => {
   const [password, setPassword] = useState("");
   const { login, isLoading, success, error } = useLogin();
 
-  // const { user, signIn, signInGoogle } = UserAuth();
+  // const { user } = useAuthContext();
+  // console.log(user);
 
   const navigate = useNavigate();
 
