@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 // POST register user
 exports.user_register = async (req, res) => {
   //   res.json({ msg: "Register a new user" });
-
   const { email, password } = req.body;
 
   try {
