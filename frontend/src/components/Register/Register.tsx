@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useRegister from "../../hooks/useRegister";
+import { useRegister } from "../../hooks/useRegister";
 
 const Register = () => {
   const [email, setEmail] = useState("");

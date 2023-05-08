@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import { UserAuth } from "../context/AuthContext";
+import { useLogin } from "../hooks/useLogin";
 
 const Landing = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const { login, isLoading, success, error } = useLogin();
 
   // const { user, signIn, signInGoogle } = UserAuth();
 
   const navigate = useNavigate();
 
-  // for user signed in with Email/Password combo
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
     try {
-      // await signIn(email, password);
-      navigate("/home");
+      await login(email, password);
+      // navigate("/home");
     } catch (err) {
-      setError(err.message);
       console.log(err.message);
     }
   };
@@ -50,11 +48,6 @@ const Landing = () => {
             <p className="text-lg mt-4 py-4 text-darkGrayishBlue">
               Explore and discover amazing books in your community
             </p>
-            {error && (
-              <p className="text-red-500 bg-red-500SupLight rounded-md p-1">
-                {error}
-              </p>
-            )}
             <form
               action=""
               className="flex flex-col px-8 gap-4"
@@ -89,9 +82,22 @@ const Landing = () => {
                   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                 </svg>
               </div>
-              <button className="bg-red-500 rounded-md text-white py-2 hover:scale-105 duration-300">
+              <button
+                disabled={isLoading}
+                className="bg-red-500 rounded-md text-white py-2 hover:scale-105 duration-300"
+              >
                 Login
               </button>
+              {error && (
+                <div className="my-4 text-red-600 border border-red-600 bg-red-100 p-2 rounded-md">
+                  {error}
+                </div>
+              )}
+              {success && (
+                <div className="my-4 text-emerald-600 border border-emerald-600 bg-emerald-100 p-2 rounded-md">
+                  {success}
+                </div>
+              )}
             </form>
 
             <div className="mt-10 grid grid-cols-3 items-center text-darkGrayishBlue">
