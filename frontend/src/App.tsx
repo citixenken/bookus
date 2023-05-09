@@ -15,7 +15,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={user ? <Home /> : <Landing />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/register" element={user ? <Home /> : <Register />} />
       <Route path="/forgotpassword" element={<ForgotPassword />} />
       <Route path="/home" element={user ? <Home /> : <Landing />} />
       <Route path="/add" element={user ? <NewBookForm /> : <Landing />} />
