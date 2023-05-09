@@ -39,5 +39,3 @@ export const useRegister = () => {
 
   return { register, isLoading, success, error };
 };
-
-// export default useRegister;

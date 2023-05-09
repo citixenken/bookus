@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-// import { useAuthContext } from "../hooks/useAuthContext";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 
 const Landing = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading, success, error } = useLogin();
-
-  // const { user } = useAuthContext();
-  // console.log(user);
-
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,28 +16,13 @@ const Landing = () => {
     }
   };
 
-  // for user signed in with Google Auth Provider
-  // const handleSignInWithGoogle = async () => {
-  //   try {
-  //     await signInGoogle();
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (user != null) {
-  //     navigate("/home");
-  //   }
-  // }, [user]);
-
   return (
     <>
       <section className=" min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-6xl p-5 items-center">
           <div className="md:w-1/2 px-16">
             <h2 className="font-bold text-4xl text-red-500">
-              Book<strong className="text-teal-200">us</strong>
+              Book<strong className="text-gray-400">us</strong>
             </h2>
             <p className="text-lg mt-4 py-4 text-darkGrayishBlue">
               Explore and discover amazing books in your community
@@ -106,8 +85,8 @@ const Landing = () => {
               <hr className="border-darkGrayishBlue" />
             </div>
 
-            {/* <button
-              onClick={handleSignInWithGoogle}
+            <button
+              onClick={() => {}} //TODO
               className="bg-veryPaleRed border py-2 rounded-md w-full mt-5 flex justify-center items-center text-md hover:scale-105 duration-300"
             >
               <svg
@@ -121,7 +100,7 @@ const Landing = () => {
                 <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
               </svg>
               Continue with Google
-            </button> */}
+            </button>
 
             <div className="mt-5 text-sm text-red-500 border-b border-darkGrayishBlue py-4 hover:scale-105 duration-300">
               <a href="/forgotpassword">Forgot Password?</a>

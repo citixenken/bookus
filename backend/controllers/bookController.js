@@ -75,7 +75,6 @@ exports.book_create = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-  //   res.json({ msg: "Post a new book" });
 };
 
 // UPDATE a book
@@ -85,7 +84,6 @@ exports.book_update = async (req, res) => {
   //   handle invalid id type issue
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "Book not found!" });
-    // return res.redirect("/books");
   }
 
   //   update book from database
@@ -97,7 +95,6 @@ exports.book_update = async (req, res) => {
   if (!updateBook) {
     //No results
     return res.status(400).json({ error: "Book not found!" });
-    // return res.redirect("/books");
   }
   res.status(200).json(updateBook);
 };
@@ -109,7 +106,6 @@ exports.book_delete = async (req, res) => {
   //   handle invalid id type issue
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "Book not found!" });
-    // return res.redirect("/books");
   }
 
   //   delete book from database
@@ -118,7 +114,6 @@ exports.book_delete = async (req, res) => {
   if (!deleteBook) {
     //No results
     return res.status(400).json({ error: "Book not found!" });
-    // return res.redirect("/books");
   }
   res.status(200).json(deleteBook);
 };

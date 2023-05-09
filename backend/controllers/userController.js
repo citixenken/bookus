@@ -9,7 +9,6 @@ const createToken = (_id) => {
 
 // POST register user
 exports.user_register = async (req, res) => {
-  //   res.json({ msg: "Register a new user" });
   const { email, password } = req.body;
 
   try {
@@ -27,7 +26,6 @@ exports.user_register = async (req, res) => {
 
 // POST login user
 exports.user_login = async (req, res) => {
-  //   res.json({ msg: "Login registered user" });
   const { email, password } = req.body;
 
   try {
