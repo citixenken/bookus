@@ -38,7 +38,7 @@ const Home = () => {
         {/* Welcome back, {user ? user.email : null}! */}
         {user && <span>Welcome back, {user.email.split("@")[0]}!</span>}
       </h4>
-      <p className="text-4xl mt-4 py-4 text-darkGrayishBlue">Book List</p>
+      <p className="text-4xl mt-4 py-4 text-darkGrayishBlue">My Library</p>
       <div className="">
         {books
           ? books.map((book) => <BookDetails key={book._id} book={book} />)

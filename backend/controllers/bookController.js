@@ -3,8 +3,10 @@ const mongoose = require("mongoose");
 
 // GET all books
 exports.book_list = async (req, res) => {
+  // filter books based on logged in user_id
+  const user_id = req.user_id._id;
   //   const allBooks = await Book.find({}, "title author") // with projections
-  const allBooks = await Book.find({}).sort({ title: 1 }).exec(); // exec() => better stack trace
+  const allBooks = await Book.find({ user_id }).sort({ createdAt: 1 }).exec(); // exec() => better stack trace
   //   res.render("book_list", { title: "Book List", book_list: allBooks });
   res.status(200).json(allBooks);
 };
@@ -54,8 +56,13 @@ exports.book_create = async (req, res) => {
       emptyFields,
     });
   }
+  // add document to db
   try {
+    // grab user_id from middleware since we're logged in and have access to it
+    const user_id = req.user_id._id;
+
     const book = await Book.create({
+      user_id,
       avatar,
       title,
       author,
@@ -63,6 +70,7 @@ exports.book_create = async (req, res) => {
       genre,
       publishedDate,
     });
+    console.log(book);
     res.status(200).json(book);
   } catch (error) {
     res.status(400).json({ error: error.message });

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const BookSchema = new Schema(
   {
+    user_id: { type: String, required: true }, // used to link specific book to user
     avatar: { data: Buffer, contentType: String },
     title: { type: String, required: true },
     author: { type: String, required: true },
