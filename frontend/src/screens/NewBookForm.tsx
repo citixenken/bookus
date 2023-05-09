@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useBookContext } from "../hooks/useBookContext";
 import { useNavigate } from "react-router-dom";
 
 const NewBookForm = () => {
+  const { user } = useAuthContext();
+  const { dispatch } = useBookContext();
+
   const navigate = useNavigate();
 
   // for keeping UI in sync with DB
-  const { dispatch } = useBookContext();
 
   const [avatar, setAvatar] = useState("");
   const [title, setTitle] = useState("");
@@ -22,6 +25,12 @@ const NewBookForm = () => {
   const handleAddNewBook = async (e) => {
     e.preventDefault();
 
+    // dont start processing if not user
+    if (!user) {
+      setError("You must be logged in");
+      return;
+    }
+
     const newBook = {
       avatar,
       title,
@@ -34,7 +43,10 @@ const NewBookForm = () => {
     const response = await fetch("http://localhost:4000/books", {
       method: "POST",
       body: JSON.stringify(newBook),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
     });
     const data = await response.json();
 
@@ -65,7 +77,7 @@ const NewBookForm = () => {
       // wait for 1.5 seconds after success then redirect to book list
       setTimeout(() => {
         navigate("/home");
-      }, 1500);
+      }, 1000);
     }
   };
 

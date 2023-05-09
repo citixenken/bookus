@@ -1,9 +1,13 @@
 import React from "react";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useBookContext } from "../hooks/useBookContext";
 
 const BookDetails = ({ book }) => {
+  const { user } = useAuthContext();
+  const { dispatch } = useBookContext();
+
   const dateBookPublished = new Date(book.publishedDate).toDateString();
   // const dateBookAdded = new Date(book.createdAt).toDateString();
 
@@ -12,12 +16,16 @@ const BookDetails = ({ book }) => {
     addSuffix: true,
   });
 
-  const { dispatch } = useBookContext();
-
   // delete book
   const handleBookDelete = async () => {
+    // dont start processing if not user
+    if (!user) {
+      return;
+    }
+
     const response = await fetch(`http://localhost:4000/books/${book._id}`, {
       method: "DELETE",
+      headers: { Authorization: `Bearer ${user.token}` },
     });
 
     const data = await response.json();
