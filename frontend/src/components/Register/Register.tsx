@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useRegister } from "../../hooks/useRegister";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { register, isLoading, success, error } = useRegister();
-
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault(); //prevent browser refresh
