@@ -17,7 +17,6 @@ const Landing = () => {
     e.preventDefault();
     try {
       await login(email, password);
-      // navigate("/home");
     } catch (err) {
       console.log(err.message);
     }
@@ -44,7 +43,7 @@ const Landing = () => {
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-6xl p-5 items-center">
           <div className="md:w-1/2 px-16">
             <h2 className="font-bold text-4xl text-red-500">
-              Book<em className="text-darkGrayishBlue">us</em>
+              Book<strong className="text-teal-200">us</strong>
             </h2>
             <p className="text-lg mt-4 py-4 text-darkGrayishBlue">
               Explore and discover amazing books in your community

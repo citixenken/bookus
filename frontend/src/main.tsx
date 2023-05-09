@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
+import { AuthContextProvider } from "./context/AuthContext";
+import { BookContextProvider } from "./context/BookContext";
 import App from "./App";
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -19,7 +21,11 @@ Sentry.init({
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Router>
-    <App />
-  </Router>
+  <AuthContextProvider>
+    <BookContextProvider>
+      <Router>
+        <App />
+      </Router>
+    </BookContextProvider>
+  </AuthContextProvider>
 );
