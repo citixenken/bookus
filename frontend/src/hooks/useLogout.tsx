@@ -12,7 +12,7 @@ const useLogout = () => {
     dispatch({ type: "LOGOUT_USER" });
     localStorage.removeItem("user_data");
     // clear global book state from application on logout. Avoids flashing of prev user data on render
-    dispatch({ type: "SET_BOOKS", payload: null });
+    bookDispatch({ type: "SET_BOOKS", payload: null });
   };
 
   return { logout };
